@@ -1,6 +1,5 @@
 #include "gauss.h"
 
-
 void iter1(vector<vector<double>>& matr,const vector<vector<double>>& matr1,double*vectornev1){
 double * massX = new double[3];
 double * massVectNev = new double[3];
@@ -108,8 +107,20 @@ for (size_t i = 1; i < 3; i++)
     }
     
 }
-double ocenkOtnPogr=slsh_max/asnw_max;
-cout<<"Ocenka otnositelnoy pogreshnosti:"<<ocenkOtnPogr<<"%";
+double mas1[3]={massX1[0],massX1[1],massX1[2]};
+double Eabsol=abs(massX1[0]);
+for (size_t i = 1; i < 3; i++)
+{
+    if(abs(mas1[i])>Eabsol){
+        Eabsol=abs(mas1[i]);
+    }
+}
+// double ocenkOtnPogr=slsh_max/asnw_max;
+// cout<<"Ocenka otnositelnoy pogreshnosti:"<<ocenkOtnPogr<<"%"<<endl;
+
+// cout<<"norma:"<<endl;
+// double ocenkOtnPogr=abs(Eabsol-normA)/normA;
+// cout<<"Ocenka otnositelnoy pogreshnosti:"<<ocenkOtnPogr<<"%";
 delete[]massX1;
 }
 
